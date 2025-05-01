@@ -1,0 +1,74 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* التنقل الأساسي */
+nav {
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #ddd;
+}
+
+nav a {
+    text-decoration: none;
+    margin-right: 1rem;
+    color: #333;
+    font-weight: bold;
+}
+
+/* تنسيقات القوائم */
+ul {
+    padding-left: 20px;
+}
+
+/* تنسيقات الجداول */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* تنسيقات النماذج الأساسية */
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #e0e0e0;
+}
+
+/* تنسيقات للأقسام الرئيسية */
+.container {
+    margin-top: 2rem;
+}
+
+.section {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}

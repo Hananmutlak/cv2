@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arbetslivserfarenhet</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Hem</a>
+        <a href="add.html">Lägg till erfarenhet</a>
+        <a href="about.html">Om</a>
+    </nav>
+    <div id="experiences"></div>
+    <script>
+        fetch('http://localhost:3000/api/work')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('experiences');
+                data.forEach(exp => {
+                    container.innerHTML += `
+                        <div class="experience">
+                            <h3>${exp.companyname}</h3>
+                            <p>${exp.jobtitle} - ${exp.location}</p>
+                            <p>Från ${exp.startdate} till ${exp.enddate || 'Nu'}</p>
+                            ${exp.description ? `<p>${exp.description}</p>` : ''}
+                            <button onclick="deleteExperience(${exp.id})">Ta bort</button>
+                        </div>
+                    `;
+                });
+            });
+
+        function deleteExperience(id) {
+            fetch(`http://localhost:3000/api/work/${id}`, { method: 'DELETE' })
+                .then(() => window.location.reload());
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lägg till erfarenhet</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav>  <a href="index.html">Hem</a>
+        <a href="add.html">Lägg till erfarenhet</a>
+        <a href="about.html">Om</a>
+    </nav>
+    <form id="addForm">
+        <input type="text" name="companyname" placeholder="Företagsnamn" required>
+        <input type="text" name="jobtitle" placeholder="Jobbtitel" required>
+        <input type="text" name="location" placeholder="Plats" required>
+        <input type="date" name="startdate" required>
+        <input type="date" name="enddate">
+        <textarea name="description" placeholder="Beskrivning"></textarea>
+        <button type="submit">Lägg till</button>
+    </form>
+    <script>
+        document.getElementById('addForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+            fetch('http://localhost:3000/api/work', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            }).then(() => window.location.href = 'index.html');
+        });
+    </script>
+</body>
+</html>
