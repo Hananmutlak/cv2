@@ -23,7 +23,7 @@
             e.preventDefault();
             const formData = new FormData(e.target);
             const data = Object.fromEntries(formData.entries());
-            fetch('http://localhost:3000/api/work', {
+            fetch('https://cv-1-o8uk.onrender.com/api/work', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
